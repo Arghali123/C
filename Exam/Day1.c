@@ -141,17 +141,22 @@ n
 //   return 0;
 // }
 
-#include<stdio.h>
-int main()
-{
-  int a=1,b=1,sum=0,n;
-  printf("Enter the number\n");
-  scanf("%d",&n);
-  do{
-    printf("%d\t",a);//1 1 2 
-    sum=a+b;//2 3 5  
-    a=b;//1 2 3 5
-    b=sum;//2 3 5 8
-  }while(n>=a);
-  return 0;
-}
+// #include<stdio.h>
+// int main()
+// {
+//   int a=1,b=1,sum=0,n;
+//   printf("Enter the number\n");
+//   scanf("%d",&n);
+//   do{
+//     printf("%d\t",a);//1 1 2 
+//     sum=a+b;//2 3 5  
+//     a=b;//1 2 3 5
+//     b=sum;//2 3 5 8
+//   }while(n>=a);
+//   return 0;
+// }
+
+
+
+
+

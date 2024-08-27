@@ -80,3 +80,78 @@ data items and the position where the output is to be displayed.
 //     return 0;
 // }
 
+
+//Unformatted I/O
+//The I/O functions that donot allow to read and display the data in desired format,basically deals with single 
+//character or string of characters.
+
+//1.)getChar() and putChar()
+//Wap to read the single character from keyboard using getChar()func & display on the screen using putChar()func
+// #include<stdio.h>
+// int main()
+// {
+//   char gender;
+//   printf("Enter Gender M or F:");
+//   gender=getchar();//waits until a key is pressed & then assigns this char to char_var.
+//   printf("%c",gender);
+//   return 0;
+
+// }
+
+//2.)getch(),getche() and putch()
+//Wap to read 2 characters from keyboars:one using getch() & anothee using getche() func and display
+//using putch()func
+// #include<stdio.h>
+// int main()
+// {
+//   char ch1,ch2;
+//   printf("Enter 1st char:");
+//   ch1=getch();
+//   printf("\nEnter the 2nd char:");
+//   ch2=getche();
+//   printf("\n1st char:");
+//   putch(ch1);
+//   printf("\n2nd char:");
+//   putch(ch2);
+//   return 0;
+// }
+
+//3.)gets() and puts()
+//WAP to read a string with multiple words(i.e. string with space) using gets() & display using puts()func
+// #include<stdio.h>
+// int main()
+// {
+//   char name[20];
+//   printf("Enter the name: ");
+//   gets(name);
+//   printf("Your name is : ");
+//   puts(name);
+//   return 0;
+// }
+
+#include<stdio.h>
+int main()
+{
+    int a=10;
+    double b=15.5;
+    char c='p';
+
+
+    //size ko lai %zu use hunxa
+
+    printf("The size of int: %zu bytes\n",sizeof(int));
+    printf("The size of double: %zu bytes\n",sizeof(double));
+    printf("The size of char: %zu bytes\n",sizeof(char));
+    return 0;
+
+}
+// #include<stdio.h>
+// int main()
+// {
+//   char n [7]="1234";
+//   printf("%s\n",n);
+//   printf("%10.3s",n);
+//  printf("%10.2s",n);
+//  printf("%10.1s",n);
+//        return 0;
+// }

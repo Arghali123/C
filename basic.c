@@ -108,11 +108,3 @@
 8.) \0 null character 
 
 */
-
-
-#include<stdio.h>
-int main()
-{
-    printf("Hi i am beep \a");
-    return 0;
-}
