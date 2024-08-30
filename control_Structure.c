@@ -1,92 +1,91 @@
 
-//print 1111
-// #include<stdio.h>
-// int main()
-// {
-//     for(int i=1;i<=4;i++)
-//     {
-//       printf("1");
-//     }
-//     return 0;
+// print 1111
+//  #include<stdio.h>
+//  int main()
+//  {
+//      for(int i=1;i<=4;i++)
+//      {
+//        printf("1");
+//      }
+//      return 0;
+//  }
+
+// print
+//  1
+//  1
+//  1
+//  1
+//  #include<stdio.h>
+//  int main()
+//  {
+//      for(int i=1;i<=4;i++)
+//      {
+//          printf("1\n");
+//      }
+//      return 0;
+//  }
+
+// print
+//  1111
+//  1111
+//  #include<stdio.h>
+//  int main()
+//  {
+//      for(int i=1;i<=2;i++)
+//      {
+//          for(int j=1;j<=4;j++)
+//          {
+//              printf("1");
+//          }
+//          printf("\n");
+//      }
+//      return 0;
+//  }
+
+// Print
+//  1
+//  12
+//  123
+//  1234
+//  12345
+//  #include<stdio.h>
+//  int main()
+//  {
+//      for(int i=1;i<=5;i++)
+//      {
+//          for(int j=1;j<=i;j++)
+//          {
+//              printf("%d",j);
+//          }
+//          printf("\n");
+//      }
+//      return 0;
+//  }
+
+// Print
+//  12345
+//  1234
+//  123
+//  12
+//  1
+//  #include<stdio.h>
+//  int main()
+//  {
+//      for(int i=5;i>=1;i--)
+//      {
+//          for(int j=1;j<=i;j++)
+//          {
+//              printf("%d",j);
+//          }
+//          printf("\n");
+//      }
+//      return 0;
+
 // }
 
-//print
-// 1
-// 1
-// 1
-// 1
-// #include<stdio.h>
-// int main()
-// {
-//     for(int i=1;i<=4;i++)
-//     {
-//         printf("1\n");
-//     }
-//     return 0;
-// }
-
-//print 
-// 1111
-// 1111
-// #include<stdio.h>
-// int main()
-// {
-//     for(int i=1;i<=2;i++)
-//     {
-//         for(int j=1;j<=4;j++)
-//         {
-//             printf("1");
-//         }
-//         printf("\n");
-//     }
-//     return 0;
-// }
-
-//Print 
-// 1
-// 12
-// 123
-// 1234
-// 12345
-// #include<stdio.h>
-// int main()
-// {
-//     for(int i=1;i<=5;i++)
-//     {
-//         for(int j=1;j<=i;j++)
-//         {
-//             printf("%d",j);
-//         }
-//         printf("\n");
-//     }
-//     return 0;
-// }
-
-
-//Print
-// 12345
-// 1234
-// 123
-// 12
-// 1
-// #include<stdio.h>
-// int main()
-// {
-//     for(int i=5;i>=1;i--)
-//     {
-//         for(int j=1;j<=i;j++)
-//         {
-//             printf("%d",j);
-//         }
-//         printf("\n");
-//     }
-//     return 0;
-
-// }
-
-//C program to print left half pyramid pattern of star
-// c program to print left half pyramid pattern of star
-// #include <stdio.h>
+// C program to print left half pyramid pattern of star
+//  c program to print left half pyramid pattern of star
+//  #include <stdio.h>
 
 // int main()
 // {
@@ -309,7 +308,7 @@ Expected = 22
 // {
 //     float operand1, operand2, result;
 //     char o;
-    
+
 //     printf("Enter the first operand:\n");
 //     scanf("%f", &operand1);
 
@@ -353,69 +352,69 @@ Expected = 22
 //     return 0;
 // }
 
-//WAP that checks whether the number is Armstrong or not
-// #include<stdio.h>
-// int main()
-// {
-//     int num,digit,sum=0;
-//     int temp;
-//     printf("Enter the number: ");
-//     scanf("%d",&num);
-//     temp=num;
-//     while (num!=0)
-//     {
-//         digit=num%10;
-//         sum+=digit*digit*digit;
-//         num=num/10;
-//     }
-//     if(temp==sum)
-//     {
-//         printf("\n The number is armstrong");
-//     }
-//     else{
-//         printf("\nThe number is not armstrong");
-//     }
-//     printf("\n%d",temp);
-    
+// WAP that checks whether the number is Armstrong or not
+//  #include<stdio.h>
+//  int main()
+//  {
+//      int num,digit,sum=0;
+//      int temp;
+//      printf("Enter the number: ");
+//      scanf("%d",&num);
+//      temp=num;
+//      while (num!=0)
+//      {
+//          digit=num%10;
+//          sum+=digit*digit*digit;
+//          num=num/10;
+//      }
+//      if(temp==sum)
+//      {
+//          printf("\n The number is armstrong");
+//      }
+//      else{
+//          printf("\nThe number is not armstrong");
+//      }
+//      printf("\n%d",temp);
+
 //     return 0;
 // }
 
-//WAP to convert decimal number into binary number
-// #include<stdio.h>
-// int main()
-// {
-// long int decnum,binNum,rev=0,q=1,rem,i=1;
-// printf("Enter the decimal number: ");
-// scanf("%ld",&decnum);
-// while (q!=0)
-// {
-//     q=decnum/2;
-//     rem=decnum%2;
-//     decnum=q;
-//     rev=rev+rem*i;
-//     i=i*10;
-// }
-// printf("\nThe coressponding binary number is %ld",rev);
-// return 0;
+// WAP to convert decimal number into binary number
+//  #include<stdio.h>
+//  int main()
+//  {
+//  long int decnum,binNum,rev=0,q=1,rem,i=1;
+//  printf("Enter the decimal number: ");
+//  scanf("%ld",&decnum);
+//  while (q!=0)
+//  {
+//      q=decnum/2;
+//      rem=decnum%2;
+//      decnum=q;
+//      rev=rev+rem*i;
+//      i=i*10;
+//  }
+//  printf("\nThe coressponding binary number is %ld",rev);
+//  return 0;
 
 // }
 
-//WAP to calculate the factorial of positive number read from the users
-// #include<stdio.h>
-// int main()
-// {
-//     long int num,fact=1;
-//     printf("Enter the positive number: ");
-//     scanf("%ld",&num);
-//     for(int i=1;i<=num;i++)
-//     {
-//         fact=fact*i;
-//     }
-//     printf("The factorial of your number is %ld ",fact);
-//     return 0;
-// }
+// WAP to calculate the factorial of positive number read from the users
+//  #include<stdio.h>
+//  int main()
+//  {
+//      long int num,fact=1;
+//      printf("Enter the positive number: ");
+//      scanf("%ld",&num);
+//      for(int i=1;i<=num;i++)
+//      {
+//          fact=fact*i;
+//      }
+//      printf("The factorial of your number is %ld ",fact);
+//      return 0;
+//  }
 
-//Jumping Statements 
+// Jumping Statements
 /*
 The C statements which unconditionally branch(jump) are as follow:
 1.)The break statement
@@ -424,75 +423,74 @@ The C statements which unconditionally branch(jump) are as follow:
 4.)The goto statement
 */
 
-//1.)The break statement:terminate the execution of the loop and the control is transferred to the statement immdiately
-//following it
-// #include<stdio.h>
-// int main()
-// {
-//     int x;
-//     for(x=1;x<10;x++)
-//     {
-//         if(x==5)
-//         {
-//             break;
-//         }
-//         printf("%d\t",x);
-//     }
-//     return 0;
+// 1.)The break statement:terminate the execution of the loop and the control is transferred to the statement immdiately
+// following it
+//  #include<stdio.h>
+//  int main()
+//  {
+//      int x;
+//      for(x=1;x<10;x++)
+//      {
+//          if(x==5)
+//          {
+//              break;
+//          }
+//          printf("%d\t",x);
+//      }
+//      return 0;
+//  }
+
+// 2.)The continue statement:terminates the current iteration of a while,for,do/while statement ans resumes execution back at
+// the beginning of the loop body with the next iteration
+//  #include<stdio.h>
+//  int main()
+//  {
+//      int x;
+//      for(x=1;x<10;x++)
+//      {
+//          if(x==3)
+//          {
+//              continue;
+//          }
+//          printf("%d\t",x);
+//      }
+//      return 0;
+//  }
+
+// The return statement
+
+// 4.)The goto statement
+//  #include<stdio.h>
+//  int main()
+//  {
+//      int x=1;
+//      daenish:
+//      printf("%d\n",x);
+//      x++;
+//      if(x<10)
+//      goto daenish;
+//      return 0;
+//  }
+
+// WAP to determine the sum of the harmonic series :(1+1/2+1/3+1/4....+1/n) for a given value
+//  #include<stdio.h>
+//  int main()
+//  {
+//      float sum=0;
+//      int i,n;
+//      printf("Enter the number: ");
+//      scanf("%d",&n);
+//      for(i=1;i<=n;i++)
+//      {
+//          sum=sum+1.0/i;
+//      }
+//      printf("The sum of the harmonic series of your number is %.2f",sum);
+//      return 0;
+
 // }
 
-//2.)The continue statement:terminates the current iteration of a while,for,do/while statement ans resumes execution back at
-//the beginning of the loop body with the next iteration
-// #include<stdio.h>
-// int main()
-// {
-//     int x;
-//     for(x=1;x<10;x++)
-//     {
-//         if(x==3)
-//         {
-//             continue;
-//         }
-//         printf("%d\t",x);
-//     }
-//     return 0;
-// }
-
-//The return statement
-
-//4.)The goto statement
-// #include<stdio.h>
-// int main()
-// {
-//     int x=1;
-//     daenish:
-//     printf("%d\n",x);
-//     x++;
-//     if(x<10)
-//     goto daenish;
-//     return 0;
-// }
-
-
-//WAP to determine the sum of the harmonic series :(1+1/2+1/3+1/4....+1/n) for a given value
-// #include<stdio.h>
-// int main()
-// {
-//     float sum=0;
-//     int i,n;
-//     printf("Enter the number: ");
-//     scanf("%d",&n);
-//     for(i=1;i<=n;i++)
-//     {
-//         sum=sum+1.0/i;
-//     }
-//     printf("The sum of the harmonic series of your number is %.2f",sum);
-//     return 0;
-
-// }
-
-//WAP to find the sum of the series :1+x^2+3x^2+4^2+......+nx^2
-// #include<stdio.h>
+// WAP to find the sum of the series :1+x^2+3x^2+4^2+......+nx^2
+//  #include<stdio.h>
 
 // int main() {
 //     int x, n, i;
@@ -512,29 +510,29 @@ The C statements which unconditionally branch(jump) are as follow:
 
 //     // Print the result
 //     printf("The sum is %d\n", sum);
-    
+
 //     return 0;
 // }
 
-//WAP to calculate the sum of the sequence :(1/1!+2/2!+3/3!+4/4!.....n/n!)
-#include<stdio.h>
+// WAP to calculate the sum of the sequence :(1/1!+2/2!+3/3!+4/4!.....n/n!)
+//  #include<stdio.h>
 
-int main() {
-    int i, j, n, fact;
-    float sum = 0;
-    
-    printf("Enter n: ");
-    scanf("%d", &n);
-    
-    for(i = 1; i <= n; i++) {
-        fact = 1;
-        for(j = 1; j <= i; j++) {
-            fact *= j;
-        }
-        sum += (float)i / fact;
-    }
-    
-    printf("The sum is %.3f\n", sum);
-    return 0;
-}
+// int main() {
+//     int i, j, n, fact;
+//     float sum = 0;
+
+//     printf("Enter n: ");
+//     scanf("%d", &n);
+
+//     for(i = 1; i <= n; i++) {
+//         fact = 1;
+//         for(j = 1; j <= i; j++) {
+//             fact *= j;
+//         }
+//         sum += (float)i / fact;
+//     }
+
+//     printf("The sum is %.3f\n", sum);
+//     return 0;
+// }
 
