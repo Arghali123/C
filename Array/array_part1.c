@@ -192,7 +192,7 @@
 //     return 0;
 // }
 
-// Program for sorting elements of one dimensional array in ascending order using selection sort.
+// Program for sorting elements of one dimensional array in ascending order using selection sort/(Bubble Sort).
 // #include <stdio.h>
 // int main()
 // {
