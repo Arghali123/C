@@ -153,7 +153,8 @@ return 0;
 ```
 ## Types of function call
 In C programming, arguments can be passed to functions in two primary ways: pass by value and pass by reference. Each method has its own implications on how data is handled within functions.
-1. Pass by Value
+1. **Pass by Value**:
+
 In pass by value, a copy of the actual argument's value is passed to the function. This means that changes made to the parameter inside the function do not affect the original variable.
 ```
 // #include <stdio.h>
@@ -170,4 +171,177 @@ In pass by value, a copy of the actual argument's value is passed to the functio
     
 //     return 0;
 // }
+```
+
+2. **Pass by Reference**:
+
+In pass by reference, the address of the actual argument is passed to the function. This allows the function to modify the original variable directly. To achieve this in C, pointers are used.
+
+Example of Pass by Reference
+```
+//Program to swap two numbers using call by address method.
+#include<stdio.h>
+void swap(int*,int*);
+int main()
+{
+    int a,b;
+    printf("Enter two numbers: ");
+    scanf("%d%d",&a,&b);
+    printf("Before Swap a=%d and b=%d\n",a,b);
+    swap(&a,&b);
+    printf("After Swap a=%d and b=%d\n",a,b);
+    return 0;
+}
+void swap(int *x,int *y)
+{
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+    printf("x=%d and y=%d\n",*x,*y);
+
+}
+```
+### Summary of Differences
+**Pass by Value**: Protecting Original Data and Lightweight Operations
+
+- A copy of the variable's value is passed.
+- Changes made to the parameter do not affect the original variable.
+- Generally safer as it prevents unintended side effects.
+Practical Use Cases:
+
+- When you don't want to modify the original data: In many situations, you want to ensure that the original data passed to a function remains unchanged. By passing a copy of the variable, the function works with the copy, leaving the original variable intact.
+
+  - Use Case: In banking software, when processing transactions, you want to calculate new values (e.g., account balances) without altering the current values before confirming a transaction.
+- Small data types or variables: For small data types like integers, floats, and chars, passing by value is efficient because copying small pieces of data is not performance-heavy.
+
+  - Use Case: In games or scientific calculations, when passing simple scalar values, there's no need to modify the original values (e.g., coordinates or scores).
+
+**Pass by Reference**: Efficiency and Direct Modifications
+- The address of the variable is passed.
+- Changes made to the parameter affect the original variable.
+- More efficient for large data structures (like arrays) since no copy is made.
+
+Practical Use Cases:
+- Modifying the original data: When you need to change the original variable, passing by reference allows the function to directly modify it. This is common in functions that manage or update objects, collections, or large data structures.
+
+  - Use Case: In sorting algorithms (like quicksort or mergesort), pass by reference is essential for swapping or updating values in place efficiently.
+- Large data structures: For large objects, arrays, or structures, passing by reference avoids the overhead of copying the entire structure. Instead, only the memory address is passed, which is much more efficient.
+
+  - Use Case: In data-heavy applications like image processing, machine learning, or database management, passing large arrays, matrices, or structs by reference is crucial for performance reasons.
+
+### Key Considerations for Choosing Pass by Value vs Pass by Reference
+**When to Use Pass by Value**:
+
+- When the data is small (e.g., integers, floats) and copying is not performance-intensive.
+- When you want to protect the original data from being changed.
+- When the operation is lightweight and doesn't require modifying the original data.
+
+**When to Use Pass By Reference**:
+
+- When you need to modify the original variable.
+- When you're dealing with large data structures (arrays, structs) where copying would be costly.
+- When you want to return multiple values from a function.
+- When memory efficiency is a concern, especially with large data or recursive calls.
+
+Real-World Example
+- **Pass by Value**: In cryptographic libraries, you might want to calculate hash values of data. Since you don’t want to modify the original data (like passwords or files), you’ll pass the data by value to ensure its integrity.
+
+- **Pass by Reference**: In machine learning, when you are training a model using large datasets, you need to pass data structures (like matrices or tensors) by reference to avoid memory overhead, as copying the entire dataset would be inefficient.
+
+## Storage Class and Scaope rules
+In C,Storage classes and scope rules define the lifetime,visibility and intialization of variables in a program.There are main four main storage classes:**auto,extern,static and register**.These control how and where variables are stored and their accessibility within different parts of the code.
+
+1. Storage Class:auto(Automatic Storage Class)
+   - Default storage class for local variables.
+   - Variables are local to the function in which they are defined.
+   - Lifetime: The variable exists only during the execution of the block in which it is defined (inside a function).
+   - Initialization: Not automatically initialized; it contains garbage values if not initialized explicitly.
+```
+#include<stdio.h>
+void function()
+{
+    auto int x=10;//auto is optional,x is a local variable.
+    printf("Inside function:x= %d\n",x);
+}
+int main()
+{
+    function();
+    //x is not accessible here
+    return 0;
+}
+//Explanation:x is a local variable with the auto storage class
+//Scope:Local to the block/function in which it's declared.
+```
+2. Storage Class:extern(External Storage Class)
+
+  - Used to declare a variable that is defined elsewhere, usually in another file or earlier in the same file.
+  - Lifetime: Exists for the entire duration of the program (global).
+  - Initialization: Default is 0 for uninitialized extern variables.
+  - Scope: The variable can be accessed across multiple files (global).
+```
+#include<stdio.h>
+extern int count;//Declaration of an external variable
+void function()
+{
+    count=10;//Modify the external variable
+    printf("Inside function:count= %d\n",count);
+
+}
+int count=0;//Defination of the external variable
+int main()
+{
+    function();
+    printf("Inside main function:count= %d\n",count);
+    return 0;
+}
+//Explanation: The extern keyword tells the compiler that the variable count is defined somewhere else. In this case, count is defined later in the same file. The variable persists for the duration of the program and can be accessed and modified by multiple functions.
+//Scope:Global accross files or the entire program.
+```
+2. Storage Class:static(Static Storage Class)
+
+- Used to retain the value of a variable across function calls or to limit the scope of a global variable to the file in which it is declared.
+- Lifetime: Exists for the entire duration of the program (global), but its scope is limited to the block or function where it is declared.
+- Initialization: Automatically initialized to 0 if not explicitly initialized.
+```
+#include<stdio.h>
+void function()
+{
+    static int x=0;//Static local variable retain its value between function calls
+    x++;
+    printf("x= %d\n",x);
+}
+int main()
+{
+    function();//x is incremented to 1
+    function();//x is incremented to 2
+    function();//x is incremented to 3
+    return 0;
+}
+//Explanation:The static variable x is local to the function() but retains its value between function calls.Unlike an auto variable,which is reinitialized everytime the function is called,x is initialized only once,and its value persists.
+//Scope:Local to the function but exists throughout the program.
+```
+4. Storage Class:register(Register Storage Class)
+
+- Suggests to the compiler that the variable be stored in a CPU register instead of RAM for faster access.
+- Lifetime: Same as an auto variable (local to the block).
+- Scope: Local to the block or function in which it is declared.
+- Initialization: Not automatically initialized; contains garbage values if not explicitly initialized.
+```
+#include<stdio.h>
+void function()
+{
+    register int i;//Request to store i in a CPU register
+    for(i=0;i<5;i++)
+    {
+        printf("i= %d\n",i);
+    }
+}
+int main()
+{
+    function();
+    return 0;
+}
+//Explanation: The register keyword requests the compiler to store the variable i in a CPU register, which may lead to faster access during repetitive operations, like loops. However, it's just a suggestion, and the compiler may ignore it if registers are unavailable.
+//Scope: Local to the block or function in which it is declared.
 ```
