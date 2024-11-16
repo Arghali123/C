@@ -1,26 +1,25 @@
 //WAP using the fucntion to find the greatest numbers among three numbers
 #include<stdio.h>
-int greatest(int,int);//Declaration
-
+int greater(int,int);
 int main()
 {
-    int a,b,c;
-    int d,e;
-    printf("Enter three numbers:\n");
-    scanf("%d%d%d",&a,&b,&c);
-    d=greatest(a,b);//Function Call
-    e=greatest(d,c);//Function Call
-    printf("The greatest number is %d\n",e);
-    return 0;
+   int a,b,c,d,e;
+   printf("Enter three numbers: ");
+   scanf("%d%d%d",&a,&b,&c);
+   d=greater(a,b);
+   e=greater(d,c);
+   printf("The greatest number is: %d\n",e);
+   return 0;
 }
-int greatest(int x,int y)//Function defination
+
+int greater(int x,int y)
 {
- if(x>y)
- {
-    return x;
- }
- else
- {
-    return y;
- }
+   if(x>y)
+   {
+      return x;
+   }
+   else
+   {
+      return y;
+   }
 }
