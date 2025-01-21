@@ -67,22 +67,22 @@ to some data.
 - They are often used when you need to change the value of a pointer (e.g., in dynamic memory allocation, 
 passing 2D arrays, or modifying pointers in functions).
 ```
+//Double pointer
 #include<stdio.h>
 int main()
 {
-    int a=10;
-    int *ptr1=&a;//ptr1 points to address of a
-    int **ptr2=&ptr1;//ptr2 points to the address of ptr1
-
-    //Output the values
-    printf("Value of a:%d\n",a);//Value of a
-    printf("Value of ptr1:%d\n",*ptr1);//value at address stored in ptr1
-    printf("Value of ptr2:%d\n",**ptr2);//value at adress stored in ptr2,which is the address of ptr1
-    //Output the addresses
-    printf("The addess of a:%p\n",&a);
-    printf("Value of ptr1(address of a):%p\n",ptr1);
-    printf("Value of ptr2(address of ptr1):%p\n",ptr2);
-    printf("Address of ptr1:%p\n",&ptr1);
+    int x=10;
+    int *p;
+    int **q;
+    p=&x;
+    printf("Value of x: %d.\n",x);
+    printf("Adress of x: %p\n",&x);
+    printf("Adress of x ot(value of p)=%p\n",p);
+    printf("Address of p: %p\n",&p);
+    q=&p;
+    printf("Value of x: %d\n",**q);
+    printf("Address of x: %p\n",*q);
+    printf("Address of p: %p\n",q);
     return 0;
 }
 ```
@@ -264,6 +264,7 @@ void main()
 // p + 1: Adds 4 (size of int) to 1000, resulting in 1004.
 // p - 5: Subtracts 5×4=20 from 1000, resulting in 980.
 ```
+![pointer increment and decrement](Photos/Pointer-Increment-Decrement.webp)
 4.) One pointer can be subtracted from another pointer provided they point to elements of same array(or both point to same data type)
 ```
 #include<stdio.h>
@@ -347,7 +348,7 @@ In the above program,we initiated a string with pointer.Alternatively,the commen
 is also the same in which the string is initiated using array.Is there a difference?yes .The array version
 of this statement reserves a memory of 20 bytes where as pointer only reserves a memory of 13 bytes.
 ![size in pointers](Photos/size.jpg)
-Similary for example in two dimensional array,or initializing an array or pointers to strings.If we initialize set of strings using two dimensional array like:
+Similary for example in two dimensional array,or initializing an array or pointers to strings.If we initialize set of strings using two dimensional array like:char list [5][10]={"ram","shyam","hari","babu","sitaram"};
 ![in 2d array](Photos/twoD.jpg)
 
 ![array of pointers](Photos/array_pointer.jpg)
@@ -355,7 +356,7 @@ It shows that the pointer version takes up less memory;it ends at 1028,while arr
 # Dynamic Memory Allocation
 The process of allocating and freeing memory at run time is known as Dynamic Memory Allocation.This reserves the 
 memory required by the program and returns this source to the system once the use of reserved space is utilized.
-The process of allocating and freeing memory at the run time(or execution time) is called memory allocation.
+The process of allocating and freeing memory at the run time(or execution time) is called dynamic memory allocation.
 ## Problem with Arrays 
 - C requires the number of elements in an array to be specified at compile time.
 - It is difficult to know the exact size of the array in advance(prior to execution).
@@ -369,9 +370,10 @@ defined within header file stdlib.h or alloc.h
 ### The malloc() function
 It allocates requested size of bytes and returns a pointer to the first byte of the allocated space.
 syntax:p=(data_type*)malloc(size_of_block);
-- Here ,p is a pointer of type data_type.The malloc()returns a pointer to the first byte to an area of memory
+- Here ,p is a pointer of type data_type.The malloc() returns a pointer to the first byte to an area of memory
 with size size_of_block.
 - e.g: x=(int*)malloc(100*sizeof(int));
+
         x=(int*)malloc(400);
 - This statement allocates a memory space equivalent to 100 times the size of an interger(100*4B=400b)and the 
 address of first byte is assigned to the pointer x of type int. 

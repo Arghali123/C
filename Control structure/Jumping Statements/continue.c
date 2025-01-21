@@ -2,14 +2,13 @@
 int main()
 {
     int i;
-    for(i=1;i<=10;i++)
+    for(i=1;i<=5;i++)
     {
-        printf("hey ram\n");
-        if(i==6)
+        printf("daenish.\n");
+        if(i==3)
         {
-            printf("hey sita\n");
-            continue;
+            printf("priyanka.\n");
         }
     }
-    return 0;
+        return 0;
 }

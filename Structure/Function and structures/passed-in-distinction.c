@@ -1,39 +1,63 @@
-//Program to create a structure named student with members roll,name,and percentage,read records of n student and 
-//display the records of students who passed in distinction division.
-#include<stdio.h>
-#include<string.h>
+// WAP to create a structure named student with members roll,name and percentage read records of n students and display the records of
+// students and display the records of students who passed in dinstinction division.
+#include <stdio.h>
+#include <string.h>
+#define N 5
+struct students
+{
+    int roll_no;
+    char name[20];
+    float percentage;
+};
 int main()
 {
-    struct student
+    struct students s[N];
+    void sort(struct students s[]);
+    void display(struct students s[]);
+    int i;
+
+    for (i = 0; i < N; i++)
     {
-        int roll;
-        char name[30];
-        float percentage;
-    }st[10];
-    int i,n;
-    float t;
-    printf("How many records you want to enter: ");
-    scanf("%d",&n);
-    printf("\nEnter the records of students:");
-    for(i=0;i<n;i++)
-    {
-        printf("\nRoll: ");
-        scanf("%d",&st[i].roll);
-        printf("Name: ");
-        scanf("%s",st[i].name);
-        printf("Percentage: ");
-        scanf("%f",&t);
-        st[i].percentage=t;
+        printf("\nEnter the information of Student %d\n", i + 1);
+        printf("Enter Roll no: ");
+        scanf("%d", &s[i].roll_no);
+        printf("Enter name: ");
+        scanf("%s", s[i].name);
+        getchar();
+        printf("Enter percentage: ");
+        scanf("%f", &s[i].percentage);
     }
-    printf("\nThe records of students who passed in distinction");
-    printf("\nRoll_no\t\tName\t\tPercentage");
-    for(i=0;i<n;i++)
+    sort(s);
+    display(s);
+    return 0;
+}
+void sort(struct students s[])
+{
+    struct students temp;
+    int i, j;
+    for (i = 0; i < N - 1; i++)
     {
-        if(st[i].percentage>=80)
+        for (j = i + 1; j < N; j++)
         {
-          printf("\n%d\t\t%s\t\t%.2f",st[i].roll,st[i].name,st[i].percentage);
+            if (strcmp(s[i].name, s[j].name) > 0)
+            {
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
         }
     }
-    return 0;
-
+}
+void display(struct students s[])
+{
+    int i;
+    printf("The list of students who got distinction\n");
+    printf("Roll no\t\tName\t\tPercentage\n");
+    for (i = 0; i < N; i++)
+    {
+        if (s[i].percentage >= 80)
+        {
+            printf("%d\t\t%s\t\t%f\n", s[i].roll_no, s[i].name, s[i].percentage);
+        }
+    }
 }

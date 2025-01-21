@@ -386,6 +386,20 @@ void display(struct employee ee[])
 # Bit Fields in structure 
 C facilates the user to store integer members in memory spaces smaller than what the compiler would originally
 allow.These space saving structure members are called bit fields.
+```
+#include<stdio.h>
+void main()
+{
+    struct time
+    {
+        unsigned int hours:5;
+        unsigned int minutes:6;
+        unsigned int seconds:6;
+    };
+    struct time t={10,30,45};
+    printf("%d:%d:%d",t.hours,t.minutes,t.seconds);
+}
+```
 
 ![Bit-field-img](Images/ok.png)
 # Union

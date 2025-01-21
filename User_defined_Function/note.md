@@ -64,6 +64,11 @@ int main() {
     return 0;
 }
 ```
+# Function Parameters
+Function parameters are the means for communication between the calling and the called functions.Two types:**formal parameters and actual parameters**.
+
+- Formal parameters are given in the function defination while actual parameters are given in the function call.
+- The name of the formal and actual parameters need not be same but data types and the number of parameters must be match.
 ## Categories of User defined fucntions(Differrent Forms of Functions)
 1. **No Parameters,No Return Value**:
 These functions neither accept any input parameters nor return any value. They are typically used for performing tasks like printing messages or manipulating global variables.
@@ -151,7 +156,46 @@ printf("Factorial of %d is: %d",number,result);
 return 0;
 }
 ```
-## Types of function call
+# Passing array to function
+Like any other variables,we can pass entire array to a function.An array name can be named as an argument for the prototype declaration and in function header.When we call the function no need to subscript or square brackets.When we pass array that pass as a call by reference because the array name is address for that array.When array is passed,it's base address is passed as call-by-value.The array elements themselves are not copied.
+### Code to demonstrate passing array to function.
+```
+//Program to read 5 numbers in an array and finds their sum and display using the function.
+#include<stdio.h>
+int sum(int a[]);
+void display(int a[]);
+int main()
+{
+    int array[5],s,i;
+    printf("Enter 5 elements:\n");
+    for(i=0;i<5;i++)
+    {
+        scanf("%d",&array[i]);
+    }
+    display(array);//passing array to sum function
+    s=sum(array);//passing array to sum function
+    printf("\nSum of array elements is: %d\n",s);
+    return 0;
+}
+int sum(int a[])
+{
+    int i,sum=0;
+    for(i=0;i<5;i++)
+    {
+        sum=sum+a[i];
+    }
+    return sum;
+}
+void display(int a[])
+{
+    int i;
+    for(i=0;i<5;i++)
+    {
+        printf("%d\t",a[i]);
+    }
+}
+```
+## Different types of function call
 In C programming, arguments can be passed to functions in two primary ways: pass by value and pass by reference. Each method has its own implications on how data is handled within functions.
 1. **Pass by Value**:
 

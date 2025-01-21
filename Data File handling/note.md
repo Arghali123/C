@@ -61,8 +61,8 @@ If we want to store data in a file in the disk,we must specify certain things ab
 # Opening and Closing a Data file
 When working with stream-oriented data file,the first step is to establish a *buffer area,*where information is temporarily stored while being transferred between computer memory and the data file.*The buffer area* allows information to be read from or written to data file more rapidly than would otherwise be possibble.This buffer area is established by writting:
 
-**FILE *ptr_var;**
-Where FILE(Uppercase letters required) is a special structure type that establish a buffer area,and the ptr_var is a pointer variable that indicates the beginning of the buffer area.The pointer *ptr_var* is often reffered as a *stream pointer,file pointer or simply stream*.
+FILE *ptr_var;
+Where FILE(Uppercase letters required) is a special structure type that establish a buffer area,and the ptr_var is a pointer variable that indicates the beginning of the buffer area.The pointer *ptr_var is often reffered as a *stream pointer,file pointer or simply stream*.
 
 # File Opening Modes
 1. "r"(read):- This mode opens an existing file for reading only purpose.If the file exists,then file is loaded into the memory and a pointer that points to the first character in the file is assigned to the file pointer.If file doesnot exist,then it returns NULL.The possible operation is-reading from the file only.

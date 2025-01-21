@@ -1,25 +1,69 @@
+//Pointers to array of Structure
 #include<stdio.h>
-#include<stdlib.h>//Include for malloc and free
-//Define a structure for Student
-struct Student
+struct student
 {
-    int id;
-    char name[20];
-    float grades[5];//Array to store grades for 5 subjects
+    char name[30];
+    int roll_no;
+    float marks[3];
+    float percentage;
 };
+
+//Function to sort students by percentage in decending order
+void sort_students(struct student *s,int n)
+{
+  struct student temp;
+  for(int i=0;i<n-1;i++)
+  {
+    for(int j=i+1;j<n;j++)
+    {
+        if((s+i)->percentage<(s+j)->percentage)
+        {
+            temp=*(s+i);
+            *(s+i)=*(s+j);
+            *(s+j)=temp;
+        }
+    }
+  }
+}
+
 int main()
 {
-    int num_students;
-    printf("Enter the number of Students: ");
-    scanf("%d",&num_students);
-
-    //Allocate memory for an array of Student Structures
-    struct Students *student=(struct Student*)malloc(num_students*sizeof(struct Student));
-
-    //Check if memory allocation was sucessful
-    if(student==NULL)
+    struct student s[5],*sptr;
+    int i,j;
+    sptr=s;
+    for(i=0;i<5;i++)
     {
-        printf("Memory allocation failed\n");
-        return 1;//Exit if allocaion fails
+        printf("Enter info of student%d:\n",i+1);
+        printf("Enter name: ");
+        scanf("%s",(sptr+i)->name);
+        getchar();
+        printf("Enter Roll no: ");
+        scanf("%d",&(sptr+i)->roll_no);
+        printf("Enter marks in 3 subjects:\n");
+        float total=0;
+        for(j=0;j<3;j++)
+        {
+            scanf("%f",&(sptr+i)->marks[j]);
+            total+=(sptr+i)->marks[j];
+        }
+        (sptr+i)->percentage=(total/300)*100;
     }
+
+    //Sort students by percentage
+    sort_students(sptr,5);
+
+    //Display and sort
+    printf("\nSorted list of students by percentage:\n");
+    for(i=0;i<5;i++)
+    {
+        printf("\nName: %s\n",(sptr+i)->name);
+        printf("Rollno: %d\n",(sptr+i)->roll_no);
+        for(j=0;j<3;j++)
+        {
+            printf("%.2f\n",(sptr+i)->marks[j]);
+        }
+        printf("\nPercentage: %.2f\n",(sptr+i)->percentage);
+    }
+   
+    return 0;
 }

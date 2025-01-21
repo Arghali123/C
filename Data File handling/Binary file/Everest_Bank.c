@@ -72,3 +72,63 @@ int main()
     fclose(fp);
     return 0;
 }
+
+//Porgram to create a file named "employee.dat" and store records of N employee in the file.These records contain name,id,office name and
+//occupation of the emloyee.Also display all the name of these employees whose office name is "Everest Bank" and Occupation is manager.
+// #include <stdio.h>
+// #include <string.h>
+
+// int main() {
+//     struct record {
+//         char name[20];
+//         int id;
+//         char office_name[20];
+//         char occupation[20];
+//     };
+//     struct record employee;
+//     FILE *fp;
+//     char ch;
+
+//     // Open file for reading and writing in binary mode
+//     fp = fopen("employee.dat", "wb+");
+//     if (fp == NULL) {
+//         printf("Cannot open the destination file.\n");
+//         return 1;
+//     }
+
+//     do {
+//         printf("Enter employee information:\n");
+//         printf("Enter name: ");
+//         scanf(" %[^\n]", employee.name);  // Consume newline before input
+//         printf("Enter identification number: ");
+//         scanf("%d", &employee.id);
+//         printf("Enter office name: ");
+//         scanf(" %[^\n]", employee.office_name);  // Consume newline before input
+//         printf("Enter occupation: ");
+//         scanf(" %[^\n]", employee.occupation);  // Consume newline before input
+
+//         // Write employee data to the file
+//         fwrite(&employee, sizeof(struct record), 1, fp);
+
+//         printf("Do you want to continue (y/n): ");
+//         scanf(" %c", &ch);  // Consume newline and read next character
+//     } while (ch != 'n' && ch != 'N');
+
+//     // Reset the file pointer to the beginning for reading
+//     rewind(fp);
+
+//     printf("Name of the employee whose office name is 'Everest Bank' and occupation is 'Manager':\n");
+
+//     // Read data from the file and display matching records
+//     while (fread(&employee, sizeof(struct record), 1, fp)) {
+//         if (strcmp(employee.office_name, "Everest Bank") == 0 &&
+//             strcmp(employee.occupation, "Manager") == 0) {
+//             printf("%s\n", employee.name);
+//         }
+//     }
+
+//     // Close the file
+//     fclose(fp);
+
+//     return 0;
+// }

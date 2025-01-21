@@ -3,73 +3,88 @@
 //2.)Define 10 structure variables of type student and using loop take input for all 10 structure variables.
 //3.)Display names of all male students.
 //4.)Exit
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #define N 5
-struct student
+
+int count = 0;
+
+struct students
 {
- int roll;
- char name[30];
- char grade;
- char gender;
- int age;   
+    int roll_no;
+    char name[20];
+    char gender;
 };
+
+void display(struct students s[]);
+
 int main()
 {
-  struct student s[N];
-  char option;
-  char choice='y';
-  int i;
-  printf("Menu Driven Program");
-  printf("\nEnter 1 for inputting student information");
-  printf("\nEnter 2 to display all Male students");
-  printf("\nEnter 3 for exit");
-  while(choice!='n')
-  {
-    printf("\nEnter your option: ");
-    scanf(" %c",&option);
-    switch(option)
+    struct students s[N];
+    char ch = 'y';
+    int choose;
 
+    do
     {
-        case '1':
-        
-        printf("Enter the info about %d student",N);
-        for(i=0;i<N;i++)
+        printf("\n--- MENU ---\n");
+        printf("1. Create New Account\n");
+        printf("2. Display All Male's List\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choose);
+
+        switch (choose)
         {
-            printf("\nInfo. about student%d",i+1);
-            printf("\nName: ");
-            scanf("%s",s[i].name);
-            printf("Roll no: ");
-            scanf("%d",&s[i].roll);
-            printf("Enter grade: ");
-            scanf(" %c",&s[i].grade);
-            printf("Gender(M/F): ");
-            scanf(" %c",&s[i].gender);
-            printf("Age: ");
-            scanf("%d",&s[i].age);
-        }
+        case 1:
+            if (count < N)
+            {
+                printf("Enter Roll no: ");
+                scanf("%d", &s[count].roll_no);
+                printf("Enter Name: ");
+                scanf("%s", s[count].name);
+                getchar(); // To consume leftover newline
+                printf("Male or Female (M/F): ");
+                scanf(" %c", &s[count].gender);
+                count++;
+            }
+            else
+            {
+                printf("Student list is full!\n");
+            }
             break;
 
-        case '2':
-        printf("List of Male students:\n");
-        for(i=0;i<N;i++)
-        {
-          if(s[i].gender=='M')
-          {
-            printf("%s\n",s[i].name);
-          }
-        }
-          break;
-        
-        case '3':
-        exit(0);
+        case 2:
+            display(s);
+            break;
+
+        case 3:
+            printf("Exiting...\n");
+            return 0;
 
         default:
-        printf("Invalid option!!");
+            printf("Invalid Option!\n");
+        }
 
+        // Prompt to continue after each iteration
+        if (choose != 3)
+        {
+            printf("Do you want to continue (y/n): ");
+            scanf(" %c", &ch);
+        }
+    } while (ch == 'y');
+
+    return 0;
+}
+
+void display(struct students s[])
+{
+    printf("\nThe list of male students:\n");
+    printf("Roll no\tName\n");
+    for (int i = 0; i < count; i++)
+    {
+        if (s[i].gender == 'M' || s[i].gender == 'm')
+        {
+            printf("%d\t%s\n", s[i].roll_no, s[i].name);
+        }
     }
-    printf("\nDo you want to continue?(y/n): ");
-    scanf(" %c",&choice);
-  }
-  return 0;
 }

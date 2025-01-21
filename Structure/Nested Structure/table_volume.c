@@ -1,6 +1,5 @@
 //Define a structure Table having data members lenght,breadth and height.Represent different measurements by
 //another structure Measurement having data members meter and centimeter.Take data for some table and find volume.
-
 #include<stdio.h>
 struct Table
 {

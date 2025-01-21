@@ -3,26 +3,45 @@
 #include<math.h>
 int main()
 {
-    float a,b,c,d,root1,root2,real,img;
-    printf("Enter the value of a,b and c of the quadratic equation:");
-    scanf("%f%f%f",&a,&b,&c);
-    d=b*b-4*a*c;
-    if(d<0)
+    double a,b,c,discriminant,root1,root2,realPart,imaginaryPart;
+    printf("Enter coefficients a,b and c: ");
+    scanf("%lf %lf %lf",&a,&b,&c);
+
+    //check if it is quadratic equation
+    if(a==0)
     {
-        printf("\nImaginary Roots:");
-        d=sqrt(fabs(d));//compute absolute value of discriminant
-        real=-b/(2*a);
-        img=d/(2*a);
-        printf("\nRoot1= %.2f+i%.2f",real,img);
-        printf("\nRoot2= %.2f-i%.2f",real,img);
+        printf("This is not a quadratic equation.\n");
+        return 0;
+    }
+
+    //Calculate discriminant
+    discriminant=b*b-4*a*c;
+
+    //Determine root type based on discriminant
+    if(discriminant>0)
+    {
+        //Two distinct real roots
+        root1=(-b+sqrt(discriminant))/(2*a);
+        root2=(-b-sqrt(discriminant))/(2*a);
+        printf("Roots are real and distinct:\n");
+        printf("Root1= %.2lf\n",root1);
+        printf("Root2= %.2lf\n",root2);
+    }
+    else if(discriminant==0)
+    {
+        //One real root
+        root1=-b/(2*a);
+        printf("Roots are real and equal:\n");
+        printf("Root1=Root2= %.2lf.\n",root1);
     }
     else
     {
-        printf("\nRoots are real.");
-        d=sqrt(d);
-        root1=(-b+d)/(2*a);
-        root2=(-b-d)/(2*a);
-        printf("\nRoot1=%.2f\tRoot2= %.2f",root1,root2);
+        //Complex roots
+        realPart=-b/(2*a);
+        imaginaryPart=sqrt(-discriminant)/(2*a);
+        printf("Roots are complex and imaginary.\n");
+        printf("Root1=%.2lf+%.2lfi\n",realPart,imaginaryPart);
+        printf("Root2=%.2lf-%.2lfi.\n",realPart,imaginaryPart);
     }
     return 0;
 }

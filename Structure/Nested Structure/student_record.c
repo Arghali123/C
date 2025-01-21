@@ -3,52 +3,50 @@
 Roll No.  Name  Faulty  DOB(Date of birth)
                         dd  mm  yy
 */
-
-#include<stdio.h>
-#include<string.h>
-#define NUM 3
+#include <stdio.h>
+#include <string.h>
+#define N 5
+struct birthday
+{
+    int dd;
+    int mm;
+    int yy;
+};
+struct students
+{
+    char name[20];
+    char faculty[10];
+    struct birthday b;
+};
 int main()
 {
-    struct dob
-    {
-        int dd;
-        int mm;
-        int yy;
-    };
-
-    struct student
-    {
-        int roll_no;
-        char name[20];
-        char faculty[10];
-        struct dob date_of_birth;
-    };
-    struct student s[NUM];
+    struct students s[N];
     int i;
-    for(i=0;i<NUM;i++)
+    for (i = 0; i < N; i++)
     {
-        printf("Enter the data for student %d\n",i+1);
-        printf("Enter roll no: \n");
-        scanf("%d",&s[i].roll_no);
+        printf("\nEnter the info of Student %d\n", i + 1);
         printf("Enter name: ");
-        scanf("%s",s[i].name);
-        printf("Enter facaulty: ");
-        scanf("%s",s[i].faculty);
-        printf("Enter Day of birthday: ");
-        scanf("%d",&s[i].date_of_birth.dd);
+        scanf("%s", s[i].name);
+        getchar();
+
+        printf("Enter faculty (BCA or CSIT): ");
+        scanf("%s", s[i].faculty);
+        getchar();
+
+        printf("Enter day of birth: ");
+        scanf("%d", &s[i].b.dd);
         printf("Enter month of birthday: ");
-        scanf("%d",&s[i].date_of_birth.mm);
+        scanf("%d", &s[i].b.mm);
         printf("Enter year of birthday: ");
-        scanf("%d",&s[i].date_of_birth.yy);
+        scanf("%d", &s[i].b.yy);
     }
-    printf("Students record of BCA only:\n");
-    for(i=0;i<NUM;i++)
+    printf("\nThe list of Students Info\n");
+    printf("Name\t\tFaculty\tDate of birthday\n");
+    for (i = 0; i < N; i++)
     {
-        if(strcmp(s[i].faculty,"BCA")==0)
+        if ((strcmp(s[i].faculty,"bca")==0) || (strcmp(s[i].faculty,"BCA")==0))
         {
-            printf("Roll no: %d\n",s[i].roll_no);
-            printf("Name: %s\n",s[i].name);
-            printf("Birthday: %d/%d/%d\n",s[i].date_of_birth.dd,s[i].date_of_birth.mm,s[i].date_of_birth.yy);
+            printf("%s\t\t%s\t%d/%d/%d\n", s[i].name, s[i].faculty, s[i].b.dd, s[i].b.mm, s[i].b.yy);
         }
     }
     return 0;
